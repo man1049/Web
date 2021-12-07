@@ -1,0 +1,48 @@
+<html>
+    <head>
+        <meta charset="utf-8"/>
+        <title>
+            
+        </title>
+        <script>
+            var year = 2100;
+            //윤년인지 판별하는 식을 작성
+            if(year%4 == 0 && year%400 == 0 || year%100 != 0){
+                document.write("<div>윤년</div>");
+            }else{
+                document.write("<div>윤년아님</div>");
+            }
+
+            var score = 50;
+            //score가 80 이상이면 우수
+            //60 이상이면 보통
+            //그 이외는 탈락
+
+            if (score>=80) {
+                document.write("우수");
+            }else if (score>=60) {
+                document.write("보통");
+            }else{
+                document.write("탈락");
+            }
+
+            switch (true) {
+                case score>=80:
+                    document.write("우수");
+                    break;
+                    case score>=60:
+                    document.write("우수");
+                    break;
+                default:
+                    document.write("탈락");
+                    break;
+                    
+            }
+
+
+        </script>
+    </head>
+    <body>
+
+    </body>
+</html>
