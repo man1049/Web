@@ -1,0 +1,39 @@
+<html>
+    <head>
+        <meta charset="utf-8"/>
+        <title>생성자</title>
+    </head>
+    <body>
+
+        <script>
+            //name, team, age 3개의 속성을 갖는
+            //객체를 5개 생성
+            function player(name,team,age) {
+                this.name = name;
+                this.age = age;
+                this.team = team;
+            }
+
+            var player1 = new player("김백산","첼시",29);
+            var player2 = new player("태백산","뮌헨",22);
+            var player3 = new player("소백산","바르셀로나",14);
+            var player4 = new player("전재민","FC서울",29);
+
+            var list = "Backsan";
+            for(var i = 0 ; i < list.length ; i++){
+                x = list.charCodeAt(i);
+                alert(String.fromCharCode(x-32));
+            }
+
+            var today = new Date();
+            var meetday = new Date(1993,4,21);
+            var interval = today.getTime() - meetday.getTime();
+
+            interval = Math.floor(
+                interval / (1000*60*60*24)
+            );
+            console.log(interval);
+            
+        </script>
+    </body>
+</html>

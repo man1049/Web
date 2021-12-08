@@ -1,0 +1,27 @@
+<html>
+    <script>
+        var obj = {
+            name:"김백산",
+            phone:"01012345678",
+            disp: function(){
+                alert("메서드");
+            }
+        }
+        obj.disp();
+        obj.name="전재민";
+        document.write(obj.name);
+        obj.address ="경기";
+        delete(obj.phone);
+        for(attr in obj){
+            alert(attr);
+        }
+    </script>
+    <head>
+        <meta charset="utf-8"/>
+
+        <title></title>
+    </head>
+    <body>
+
+    </body>
+</html>

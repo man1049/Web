@@ -1,0 +1,28 @@
+<html>
+    <head>
+        <meta charset="utf-8"/>
+        <title>Navigator</title>
+    </head>
+    <body>
+
+        <script>
+            var info = navigator.userAgent;
+            //information 에 chrome 이라는 문자열이
+            //포함되어 있는지 대화상자에 출력
+            //포함되어 있다 없다로 출력
+            var str = "chrome";;
+            var res = info.toLowerCase().indexOf(str);
+            if(res >= 0){
+                document.write("있다");
+            }else{
+                document.write("없다");
+            }
+
+            for(var i = 0 ; i < info.length ; i ++){
+                for (var j = 0 ; j < str.length ; j++) {
+                    //if(info.in)
+                }
+            }
+        </script>
+    </body>
+</html>
