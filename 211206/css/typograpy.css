@@ -1,0 +1,11 @@
+h1{
+    font: bold normal 18px/1.6 "궁서";
+    text-transform: uppercase;
+    text-align: center;
+}
+h2{
+    color: blueviolet;
+    text-shadow: transparent, teal;
+    font-size: 100px;
+    text-shadow: 20px 20px 20px rgb(177, 109, 109) ,20px 20px 20px rgb(233, 25, 25);
+}
