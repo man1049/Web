@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>WebStorage를 이용한 ID 저장</title>
+</head>
+<body>
+	<form id="loginform">
+		아이디 <input type="text" id="id"/><br/>
+		<input type="checkbox" id="idsave"/>아이디저장<br/>
+		<input type="submit" value="로그인"/>
+	</form>
+	
+	<script>
+
+	var idsave = document.getElementById("idsave");
+	var ids = document.getElementById("id");
+	
+	//폼의 데이터를 전송 할 때 idsave의 체크여부를 확인해서
+	//체크되어 있으면 id 입력 값을 로컬 스토리지에 저장하고
+	//체크되어 있지 않으면 삭제
+	
+	document.getElementById("loginform").addEventListener("submit", function(e) {
+		
+		if(idsave.checked){
+			localStorage.setItem("id", ids.value);
+		}else{
+			localStorage.clear();
+		}
+	})
+	
+	//화면에 출력 할 때 저장 된 데이터를 불러와서 출력
+	window.addEventListener("load", function(e) {
+		//localStorage에 ids 값의 길이가 0보다 크다면
+		if(localStorage.getItem("id").length > 0){
+			ids.value = localStorage.getItem("id");
+			idsave.checked = true;
+		}
+	})
+	
+</script>
+</body>
+</html>
