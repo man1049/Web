@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="users">
+	<insert id="insertusers" parameterType="Users">
+		insert into users values(#{num},#{id},#{pw},#{name},#{birthday},#{image})
+	</insert>
+	<select id="maxnum" resultType="java.lang.Integer">
+		select MAX(num) from users
+	</select>
+	<select id="selectall" resultMap="usersMapper">
+		select * from users
+	</select>
+	<select id="selectone" resultMap="usersMapper" parameterType="java.lang.Integer">
+		select * from users where num = #{num}	
+	</select>
+	<update id="updateusers" parameterType="Users">
+		update users
+		set id = #{id} , pw = #{pw} , name = #{name} , birthday = #{birthday}
+		where num = #{num}
+	</update>
+	<delete id="deleteusers" parameterType="java.lang.Integer">
+		delete from users where num = ${num}
+	</delete>
+	<resultMap type="Users" id="usersMapper">
+		<result property="num" column="num"/>
+		<result property="id" column="id"/>
+		<result property="pw" column="pw"/>
+		<result property="name" column="name"/>
+		<result property="birthday" column="birthday"/>
+		<result property="image" column="image"/>
+	</resultMap>
+</mapper>

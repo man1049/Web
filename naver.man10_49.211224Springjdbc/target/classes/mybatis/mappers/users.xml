@@ -10,7 +10,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</select>
 	
 	<!-- id를 가지고 데이터를 가져오는 sql -->
-	<select id="getuser" resultType="mybatis.domain.UserVO" parameterType="java.lang.String">
+	<select id="getuser" resultType="mybatis.domain.UsersVO" parameterType="java.lang.String">
 		select * from users where id = #{id}
 	</select>
 	

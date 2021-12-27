@@ -43,6 +43,6 @@
 	<bean class="org.mybatis.spring.SqlSessionTemplate"
 		id="sqlSession" destroy-method="clearCache">
 		<constructor-arg name="sqlSessionFactory"
-			ref="sqlSessionFactory" />
+			ref="sqlSessionFactor" />
 	</bean>
 </beans>
