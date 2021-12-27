@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd">
+
+	<!-- Spring JDBC 클래스의 bean -->
+
+	<bean id="jdbcTemplate"
+		class="org.springframework.jdbc.core.JdbcTemplate">
+		<constructor-arg ref="dataSource" />
+	</bean>
+
+
+	<!-- Spring 설정 파일에서 annotation을 사용하기 위한 설정 -->
+	<context:annotation-config />
+
+	<!-- annotation이 붙은 클래스들의 bean을 자동생성해주는 패키지 설정 -->
+	<context:component-scan base-package="mybatis" />
+
+	<!-- 데이터베이스 연결 정보 -->
+	<bean id="dataSource"
+		class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+		<property name="driverClassName"
+			value="org.mariadb.jdbc.Driver" />
+		<property name="url"
+			value="jdbc:mariadb://118.32.35.166:3306/211224springdb?characterEncoding=UTF-8&amp;serverTimezone=UTC"></property>
+		<property name="username" value="project_member" />
+		<property name="password" value="pH6*qRE[zZ" />
+	</bean>
+
+	<!-- MyBatis 사용을 위한 환경 설정 클래스 -->
+	<bean class="org.mybatis.spring.SqlSessionFactoryBean"
+		id="sqlSessionFactor">
+		<property name="dataSource" ref="dataSource" />
+		<property name="configLocation"
+			value="mybatis/mybatis-conf.xml" />
+		<property name="mapperLocations" value="mybatis.mappers/users.xml" />
+	</bean>
+
+	<!-- XML을 이용하는 MyBatis 실행 인스턴스 -->
+	<bean class="org.mybatis.spring.SqlSessionTemplate"
+		id="sqlSession" destroy-method="clearCache">
+		<constructor-arg name="sqlSessionFactory"
+			ref="sqlSessionFactory" />
+	</bean>
+</beans>

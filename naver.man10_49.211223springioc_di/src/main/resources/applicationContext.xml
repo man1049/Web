@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd">
+	<!-- dao.ItemDao 클래스의 인스턴스를 생성하고 itemDao 라는 아이디로 관리 -->
+	<bean id="ItemDao" class="dao.ItemDao" />
+
+	<!-- Integer 클래스의 bean을 생성 -->
+	<bean id="num" class="java.lang.Integer">
+		<constructor-arg>
+			<value>5</value>
+		</constructor-arg>
+	</bean>
+	<bean id="CB" class="domain.CollectionBean">
+		<property name="list">
+			<list>
+				<value>김백산</value>
+				<value>태백산</value>
+			</list>
+		</property>
+		<property name="set">
+			<set>
+				<value>전백산</value>
+				<value>소백산</value>
+			</set>
+		</property>
+		<property name="map">
+			<map>
+				<entry key="이백산">
+					<value>58</value>
+				</entry>
+				<entry>
+					<key>
+						<value>디아블로2</value>
+					</key>
+					<value>블리자드</value>
+				</entry>
+				<entry key="레드데드리뎀션2" value="락스타게임즈" />
+			</map>
+		</property>
+		<property name="properties">
+			<props>
+				<prop key="워크래프트3">블리자드</prop>
+				<prop key="스타크래프트">블리자드</prop>
+				<prop key="포르자호라이즌5">마이크로소프트</prop>
+			</props>
+		</property>
+	</bean>
+
+	<bean id="item" class="domain.Item" p:num-ref="num" p:name="태백산">
+		<property name="num">
+			<!-- num 라는 bean을 가져와 대입 -->
+			<ref bean="num" />
+		</property>
+		<property name="age">
+			<value>29</value>
+		</property>
+	</bean>
+	
+	<!-- annotation을 스프링 설정 파일에서 사용 할 수 있도록 해주는 코드 -->
+	<context:annotation-config/>
+	<!--
+	<bean id="userDao" class="serviceimpl.UserDao"/>
+	<bean id="userService" class="serviceimpl.UserServiceImpl"/>
+	<bean id="userController" class="controller.UserController"/>
+	-->
+	
+	<!-- 어노테이션이 붙은 클래스의 bean을 자동생성하는 코드 -->
+	<context:component-scan base-package="serviceimpl, controller"/>
+</beans>

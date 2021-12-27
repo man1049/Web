@@ -26,25 +26,20 @@ public class SubServiceImpl implements SubService {
 		return ssv;
 	}
 	
-	/* JSON
+	// JSON
 	@Override
 	public void getList(HttpServletRequest request, HttpServletResponse response) {
-		//파라미터를 읽기
-		String num = request.getParameter("pagenum");
-		System.out.println("pagenum : "+num);
 		int pagenum = 1;
-		
-		if(num != null || num.equals("")) {
+		String num = (request.getParameter("pagenum"));
+		if(num != null) {
 			pagenum = Integer.parseInt(num);
 		}
-		
+
 		//전체 데이터 개수를 가져오기
 		int totalcount = dao.getCount();
 		//종료 페이지 번호 계산
 		int endpage = (int)(Math.ceil(pagenum/(double)5)*5);
-		//시작 페이지 번호 계산
-		int startpage = endpage - 4;
-		
+
 		//데이터 개수를 가지고 나올 수 있는 페이지 개수를 계산
 		//1개이면 1페이지, 5개이면 1페이지, 6개이면 2페이지
 		//120 개이면 24페이지
@@ -77,7 +72,7 @@ public class SubServiceImpl implements SubService {
 		JSONObject obj = new JSONObject();
 		
 		//출력 할 데이터
-		obj.put("list", list);
+		obj.put("ar", ar);
 		//현재까지 출력 한 페이지 번호
 		obj.put("pagenum", pagenum);
 		//전체 페이지 개수
@@ -86,8 +81,8 @@ public class SubServiceImpl implements SubService {
 		request.setAttribute("res", obj);
 		
 		
-	}*/
-
+	}
+/*
 	@Override
 	public void getList(HttpServletRequest request, HttpServletResponse response) {
 		//파라미터를 읽기
@@ -137,7 +132,7 @@ public class SubServiceImpl implements SubService {
 		System.out.println(endpage);
 		
 	}
-
+*/
 	@Override
 	public void getInfo(HttpServletRequest request, HttpServletResponse response) {
 		//"sub/info".length()
