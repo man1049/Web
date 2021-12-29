@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration
+PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+	<!-- 패키지 이름을 생략하기 위해서 패키지 이름을 등록 -->
+	<typeAliases>
+		<package name="usersdb"/>
+	</typeAliases>
+</configuration>
