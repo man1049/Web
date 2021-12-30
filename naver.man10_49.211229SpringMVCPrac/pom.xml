@@ -15,11 +15,11 @@
 		<org.slf4j-version>1.6.6</org.slf4j-version>
 	</properties>
 	<dependencies>
-		<!-- MySQL을 사용하기 위한 의존성 -->
+		<!-- MariaDB를 사용하기 위한 의존성 -->
 		<dependency>
-			<groupId>mysql</groupId>
-			<artifactId>mysql-connector-java</artifactId>
-			<version>8.0.21</version>
+		    <groupId>org.mariadb.jdbc</groupId>
+		    <artifactId>mariadb-java-client</artifactId>
+		    <version>1.5.7</version>
 		</dependency>
 		<!-- Spring에서 데이터베이스 사용하기 위한 의존성 -->
 		<dependency>
