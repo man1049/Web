@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="itemmapper">
+	<select id="selectall" resultType="ItemVO">
+		select * from item
+	</select>
+	<select id="selectone" parameterType="java.lang.Integer" resultType="ItemVO">
+		select * from item where item_num = #{item_num}
+	</select>
+	<insert id="insertitem" parameterType="ItemVO" >
+		insert into item values(#{item_num},#{item_name},#{item_price},#{item_description},#{item_picture})
+	</insert>
+	<delete id="deleteitem" parameterType="java.lang.Integer">
+		delete from item where item_num = #{item_num}
+	</delete>
+</mapper>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="kr.co.prac.domain">
+	<class name="ItemVO" table="item">
+		<id name="item_num" column="item_num"/>
+		<property name="item_name" column="item_name"/>
+		<property name="item_price" column="item_price"/>
+		<property name="item_description" column="item_description"/>
+		<property name="item_picture" column="item_picture"/>
+	</class>
+</hibernate-mapping>
